@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-public class UserListResponse extends BaseResponse {
+public class UserPageResponse extends BaseResponse {
 
     private Long total;
 

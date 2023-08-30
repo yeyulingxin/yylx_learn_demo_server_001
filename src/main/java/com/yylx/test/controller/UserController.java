@@ -7,7 +7,7 @@ import com.yylx.test.model.UserEditRequest;
 import com.yylx.test.model.UserInfoQueryRequest;
 import com.yylx.test.model.UserInfoResponse;
 import com.yylx.test.model.UserListQueryParam;
-import com.yylx.test.model.UserListResponse;
+import com.yylx.test.model.UserPageResponse;
 import com.yylx.test.model.UserUpdateStatusRequest;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,12 +21,12 @@ import java.util.Arrays;
 public class UserController {
 
     @PostMapping("getUserList")
-    public UserListResponse getCategoryTree(@RequestBody UserListQueryParam request) {
-        UserListResponse.UserInfoDTO user1 =
-                UserListResponse.UserInfoDTO.builder().userId("1").userName("用户1").userStatus(true).roleName("主管").build();
-        UserListResponse.UserInfoDTO user2 =
-                UserListResponse.UserInfoDTO.builder().userId("2").userName("用户2").userStatus(false).roleName("主管").build();
-        return UserListResponse.builder().total(20L).code(200).pageNum(request.getPageNum()).pageSize(request.getPageSize()).msg("")
+    public UserPageResponse getCategoryTree(@RequestBody UserListQueryParam request) {
+        UserPageResponse.UserInfoDTO user1 =
+                UserPageResponse.UserInfoDTO.builder().userId("1").userName("用户1").userStatus(true).roleName("主管").build();
+        UserPageResponse.UserInfoDTO user2 =
+                UserPageResponse.UserInfoDTO.builder().userId("2").userName("用户2").userStatus(false).roleName("主管").build();
+        return UserPageResponse.builder().total(20L).code(200).pageNum(request.getPageNum()).pageSize(request.getPageSize()).msg("")
                 .userList(Arrays.asList(user1, user2)).build();
     }
 

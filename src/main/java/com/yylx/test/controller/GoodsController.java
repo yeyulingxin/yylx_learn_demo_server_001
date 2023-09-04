@@ -1,5 +1,7 @@
 package com.yylx.test.controller;
 
+import com.yylx.test.model.AttrListQueryParam;
+import com.yylx.test.model.AttrListResponse;
 import com.yylx.test.model.CategoryListQueryParam;
 import com.yylx.test.model.CategoryListResponse;
 import com.yylx.test.model.CategoryPageResponse;
@@ -215,5 +217,21 @@ public class GoodsController {
                         ).build()
 
                 )).build();
+    }
+
+    @PostMapping("getAttributes")
+    public AttrListResponse getAttrList(@RequestBody AttrListQueryParam param) {
+        System.out.println(param);
+        if ("many".equals(param.getType())) {
+            return AttrListResponse.builder().code(200).msg("").paramsList(Arrays.asList(
+                    AttrListResponse.AttrInfoDTO.builder().attrId("1").attrName("版型").build(),
+                    AttrListResponse.AttrInfoDTO.builder().attrId("2").attrName("颜色").build()
+            )).build();
+        } else {
+            return AttrListResponse.builder().code(200).msg("").paramsList(Arrays.asList(
+                    AttrListResponse.AttrInfoDTO.builder().attrId("1").attrName("显示-曲面").build(),
+                    AttrListResponse.AttrInfoDTO.builder().attrId("2").attrName("系统-智能电视").build()
+            )).build();
+        }
     }
 }

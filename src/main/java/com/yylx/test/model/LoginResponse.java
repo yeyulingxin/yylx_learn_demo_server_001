@@ -11,7 +11,5 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class LoginResponse extends BaseResponse {
 
-    private String username;
-
-    private String password;
+    private String token;
 }

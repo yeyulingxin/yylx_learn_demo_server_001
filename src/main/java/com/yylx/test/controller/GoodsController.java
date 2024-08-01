@@ -1,7 +1,12 @@
 package com.yylx.test.controller;
 
+import com.yylx.test.model.AttrAddRequest;
+import com.yylx.test.model.AttrEditRequest;
+import com.yylx.test.model.AttrInfoResponse;
 import com.yylx.test.model.AttrListQueryParam;
 import com.yylx.test.model.AttrListResponse;
+import com.yylx.test.model.AttrQueryRequest;
+import com.yylx.test.model.BaseResponse;
 import com.yylx.test.model.CategoryListQueryParam;
 import com.yylx.test.model.CategoryListResponse;
 import com.yylx.test.model.CategoryPageResponse;
@@ -233,5 +238,23 @@ public class GoodsController {
                     AttrListResponse.AttrInfoDTO.builder().attrId("2").attrName("系统-智能电视").build()
             )).build();
         }
+    }
+
+    @PostMapping("addAttribute")
+    public BaseResponse addAttribute(@RequestBody AttrAddRequest request) {
+        System.out.println(request);
+        return BaseResponse.builder().code(200).msg("").build();
+    }
+
+    @PostMapping("editAttribute")
+    public BaseResponse getAttribute(@RequestBody AttrEditRequest request) {
+        System.out.println(request);
+        return BaseResponse.builder().code(200).msg("").build();
+    }
+
+    @PostMapping("getAttribute")
+    public AttrInfoResponse getAttribute(@RequestBody AttrQueryRequest request) {
+        System.out.println(request);
+        return AttrInfoResponse.builder().code(200).msg("").attrId("1").attrName("显示-曲面").build();
     }
 }
